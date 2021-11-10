@@ -6,6 +6,8 @@ export const Container = styled.div`
   justify-content: ${({ center }) => (center ? 'center' : 'flex-start')};
 `
 
-export const Heading = styled.h1`
-  font-size: ${({ size }) => (size ? size : '2rem')};
+export const Heading = styled.h2`
+  font-size: ${({ size }) => (size ? size : '2.75rem')};
+  font-weight: bold;
+  font-size: 2.1rem;
 `

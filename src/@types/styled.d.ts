@@ -1,9 +1,7 @@
 import { CSSProp } from 'styled-components'
 
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    // Your theme stuff here
-  }
+  export interface DefaultTheme {}
 }
 
 declare module 'react' {
@@ -14,4 +12,9 @@ declare module 'react' {
     name?: string
     tabindex?: string
   }
+}
+
+export interface ILanguage {
+  id: number
+  lang: string
 }

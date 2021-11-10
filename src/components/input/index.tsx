@@ -10,34 +10,40 @@ type IInput = {
   id?: string
   value?: string
   tabindex?: string
-  onKeyDown?: (e: React.SyntheticEvent) => void
-  ref?: React.Ref<HTMLInputElement>
+  error?: string
 }
 
 type Ref = HTMLInputElement
 
 export const Input = forwardRef<Ref, IInput>(
   (
-    { placeholder, type = 'text', onChange, name, label, id, value, tabindex },
+    {
+      placeholder,
+      type = 'text',
+      onChange,
+      name,
+      label,
+      id,
+      value,
+      tabindex,
+      error
+    },
     innerRef
   ) => {
-    console.log('ref', placeholder, onChange, name, label, id, value, tabindex)
-
     return (
       <Container>
         <Label htmlFor={id}>{label || placeholder}</Label>
         <StyledInput
           placeholder={placeholder}
           type={type}
-          // onChange={onChange}
+          onChange={onChange}
           id={id}
           name={name}
           value={value}
           tabindex={tabindex}
-          // onKeyDown={onKeyDown}
           ref={innerRef}
         />
-        <ErrorMessage></ErrorMessage>
+        {error && <ErrorMessage>{error}</ErrorMessage>}
       </Container>
     )
   }

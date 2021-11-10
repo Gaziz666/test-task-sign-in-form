@@ -36,6 +36,7 @@ export const Rect = styled.span`
   box-sizing: border-box;
   box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
   border-radius: 4px;
+  margin-right: 0.5rem;
 
   & svg {
     opacity: 0;
@@ -43,7 +44,5 @@ export const Rect = styled.span`
 `
 
 export const LabelText = styled.span`
-  padding-left: 0.5rem;
-  overflow: hidden;
-  white-space: nowrap;
+  color: #756f86;
 `

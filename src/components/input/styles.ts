@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: start;
+  width: 100%;
 `
 
 export const StyledInput = styled.input`

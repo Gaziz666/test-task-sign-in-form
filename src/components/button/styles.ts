@@ -23,6 +23,7 @@ export const StyledButton = styled.button`
   min-height: 56px;
   box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.08),
     0px 4px 8px rgba(44, 39, 56, 0.08);
+  width: 100%;
 
   &:hover {
     -webkit-box-shadow: 0px 12px 24px rgba(44, 39, 56, 0.08),

@@ -3,7 +3,7 @@ import { Checked } from '../icons'
 import { Container, Input, Label, LabelText, Rect } from './styles'
 
 type CheckboxT = {
-  label: string
+  label: React.ReactNode
   value: string
   id: string
 }

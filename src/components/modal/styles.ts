@@ -14,10 +14,18 @@ export const Container = styled.div`
 export const WrapperCenter = styled.div`
   margin: auto;
   z-index: 2;
-  background-color: #69dadb;
-  border-radius: 1rem;
-  padding: 1rem;
-  border: 2px solid black;
+  background: #ffffff;
+  box-shadow: 0px 12px 24px rgba(44, 39, 56, 0.02),
+    0px 32px 64px rgba(44, 39, 56, 0.04);
+  border-radius: 24px;
+  padding: 1.9rem 2.5rem;
+  min-width: 460px;
+
+  @media (max-width: 460px) {
+    & {
+      min-width: 360px;
+    }
+  }
 `
 
 export const Overlay = styled.div`
