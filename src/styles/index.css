@@ -1,0 +1,23 @@
+@import './fonts.css';
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 0;
+}
+
+body {
+  color: #1f3246;
+  background-color: #ffffff;
+  font-family: 'IBM Plex Sans-Medium', 'Arial', sans-serif;
+}
