@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/test-task-sign-in-form/static/css/main.a81ff011.chunk.css",
+    "main.js": "/test-task-sign-in-form/static/js/main.509279a6.chunk.js",
+    "main.js.map": "/test-task-sign-in-form/static/js/main.509279a6.chunk.js.map",
+    "runtime-main.js": "/test-task-sign-in-form/static/js/runtime-main.dd9a5860.js",
+    "runtime-main.js.map": "/test-task-sign-in-form/static/js/runtime-main.dd9a5860.js.map",
+    "static/js/2.3499600c.chunk.js": "/test-task-sign-in-form/static/js/2.3499600c.chunk.js",
+    "static/js/2.3499600c.chunk.js.map": "/test-task-sign-in-form/static/js/2.3499600c.chunk.js.map",
+    "index.html": "/test-task-sign-in-form/index.html",
+    "static/css/main.a81ff011.chunk.css.map": "/test-task-sign-in-form/static/css/main.a81ff011.chunk.css.map",
+    "static/js/2.3499600c.chunk.js.LICENSE.txt": "/test-task-sign-in-form/static/js/2.3499600c.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/test-task-sign-in-form/static/media/Roboto-Regular.a8d6ac03.ttf",
+    "static/media/Roboto-Medium.7429a63c.ttf": "/test-task-sign-in-form/static/media/Roboto-Medium.7429a63c.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dd9a5860.js",
+    "static/js/2.3499600c.chunk.js",
+    "static/css/main.a81ff011.chunk.css",
+    "static/js/main.509279a6.chunk.js"
+  ]
+}
