@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.button<{ disable: boolean }>`
   position: relative;
   display: flex;
   justify-content: center;
@@ -15,8 +15,8 @@ export const StyledButton = styled.button`
   font-size: 1rem;
   border: none;
   border-radius: 6px;
-  background: #0880ae;
-  color: #ebf4f8;
+  background: ${({ disable }) => (disable ? '#DBE2EA' : '#0880ae')};
+  color: ${({ disable }) => (disable ? '#B1B5BF' : '#ebf4f8')};
   cursor: pointer;
   transition: transform 0.3s ease;
   min-width: 180px;

@@ -39,6 +39,7 @@ export const Label = styled.label`
   margin-bottom: 8px;
 `
 export const ErrorMessage = styled.span`
+  margin-top: 0.5rem;
   display: block;
   font-size: 0.8rem;
   line-height: 1.1rem;

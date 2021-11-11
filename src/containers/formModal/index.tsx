@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef, createRef } from 'react'
 import { useParams, useHistory } from 'react-router'
 import { Formik, Field, Form, FormikHelpers, FormikProps } from 'formik'
-// import { Path, useForm, UseFormRegister, SubmitHandler } from 'react-hook-form'
+import * as Yup from 'yup'
 
 import { Modal } from '../../components/modal'
 import { Title } from '../../components/title'
-import { Input } from '../../components/input'
 import {
   ColumnContainer,
   Container,
@@ -13,13 +12,11 @@ import {
   Description,
   Link
 } from './styles'
-import { Select } from '../../components/select'
-import { TextArea } from '../../components/textArea'
 import { Button } from '../../components/button'
 import { CheckBox } from '../../components/checkBox'
-import { Dropdown, DropdownItem } from '../../components/dropdown'
 import { LanguageSelectField } from '../languageSelectField'
 import { ILanguage } from '../../@types/styled'
+import InputField from '../inputField'
 
 type IParam = {
   open?: string
@@ -31,6 +28,21 @@ export type IValue = {
   phone: string
   lang: string
 }
+
+const SignUpSchema = Yup.object().shape({
+  name: Yup.string()
+    .required('обязательно для заполнения')
+    .matches(
+      /^([-A-Za-zА-Яа-я ])+$/,
+      'Имя может содержать только буквы, дефис и пробел'
+    ),
+  email: Yup.string()
+    .required('обязательно для заполнения')
+    .email('Введено не корректное значение'),
+  phone: Yup.string()
+    .required('обязательно для заполнения')
+    .matches(/^([-0-9()+])+$/, 'номер может содержать только цифры (,),-,+')
+})
 
 export const FormModal: React.FC = () => {
   const { open } = useParams<IParam>()
@@ -57,9 +69,11 @@ export const FormModal: React.FC = () => {
     values: IValue,
     { setSubmitting }: FormikHelpers<IValue>
   ) => {
-    console.log(values, setSubmitting, selectedLang)
-    await new Promise((r) => setTimeout(r, 500))
-    // alert(JSON.stringify(values, null, 2))
+    if (!selectedLang) {
+      return
+    }
+    values.lang = selectedLang.lang
+    console.log('value', values)
   }
 
   const closeModal = () => {
@@ -75,7 +89,11 @@ export const FormModal: React.FC = () => {
         <Link>Войти</Link>
       </DescriptionContainer>
 
-      <Formik initialValues={initialValue} onSubmit={sendData}>
+      <Formik
+        initialValues={initialValue}
+        onSubmit={sendData}
+        validationSchema={SignUpSchema}
+      >
         {(props: FormikProps<IValue>) => (
           <Form>
             <Container>
@@ -86,7 +104,7 @@ export const FormModal: React.FC = () => {
                   type="text"
                   name="name"
                   id="name"
-                  as={Input}
+                  component={InputField}
                   tabindex="1"
                 />
                 <Field
@@ -95,7 +113,7 @@ export const FormModal: React.FC = () => {
                   name="email"
                   label="Email"
                   id="email"
-                  as={Input}
+                  component={InputField}
                   tabindex="2"
                 />
                 <Field
@@ -104,7 +122,7 @@ export const FormModal: React.FC = () => {
                   name="phone"
                   label="Номер телефона"
                   id="phone"
-                  as={Input}
+                  component={InputField}
                   tabindex="3"
                 />
 
@@ -125,8 +143,18 @@ export const FormModal: React.FC = () => {
                   value="sdf"
                 />
               </ColumnContainer>
-
-              <Button type="submit">Зарегистрироваться</Button>
+              <Button
+                disable={
+                  selectedLang
+                    ? Object.keys(props.errors).length === 0
+                      ? false
+                      : true
+                    : true
+                }
+                type="submit"
+              >
+                Зарегистрироваться
+              </Button>
             </Container>
           </Form>
         )}

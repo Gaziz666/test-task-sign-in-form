@@ -1,7 +1,8 @@
+import { Field } from 'formik'
 import React, { forwardRef } from 'react'
 import { StyledInput, Container, Label, ErrorMessage } from './styles'
 
-type IInput = {
+export type IInput = {
   placeholder?: string
   type?: string
   onChange?: (e: React.FormEvent<HTMLInputElement>) => void
